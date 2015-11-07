@@ -1,0 +1,30 @@
+20.1 build a udp echo client that sends a datagram to a 
+specified echo server awaits a reply and compares it to the original message
+
+20.5 build a udp client for internet time client;
+
+
+package main 
+
+import (
+	"os"
+	"fmt"
+)
+
+func main() {
+	for i, arg := range os.Args[0:] {
+		fmt.Println(i,arg);
+	}	
+}
+package main
+
+import (
+	"fmt"
+	"os"
+	"strings"
+)
+
+func main() {
+	fmt.Println(strings.Join( os.Args[0:], " "))	
+}
+
