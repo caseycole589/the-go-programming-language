@@ -44,18 +44,21 @@ func main() {
 
 func handlerLiss(w http.ResponseWriter, r *http.Request) {
 	
-	if err := r.ParseForm(); err != nil {
-		log.Print(err)
-	}
-	// var cycles float64
-	c := r.Form["cycles"]
+	//if used the other way parseForm must first be called
+	// if err := r.ParseForm(); err != nil {
+	// 	log.Print(err)
+	// }
 
-	cyclesParam, err := strconv.Atoi(string(c[0])); if err !=  nil {
+	//this will print to the server
+	// fmt.Println(r.FormValue("cycles"))
+	//alternate form access with c[0]
+	// c := r.Form["cycles"]
+
+	cyclesParam, err := strconv.Atoi(r.FormValue("cycles")); if err !=  nil {
 		log.Print(err)
 	}
-	// cyclesParam := 4.0
+
 	lissajous(w, float64(cyclesParam))
-
 }
 
 //handler echoes the path componet of the request url r.
